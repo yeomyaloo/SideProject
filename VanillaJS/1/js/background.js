@@ -7,7 +7,7 @@ const images = ["0.jpeg","1.jpeg","2.jpeg"];
 const chosenImage = images[Math.floor(Math.random()*images.length)];
 
 
-//HTML 사용 없이 JS로 이미지 넣기
+//HTML 사용 없이 JS로 이미지 넣기 (JS를 이용한 HTML 수정방안.)
 const bgImage = document.createElement("img");
 bgImage.src = `img/${chosenImage}`;
 
