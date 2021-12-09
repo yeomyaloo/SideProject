@@ -5,13 +5,17 @@ const toDoList = document.getElementById("todo-list");
 const toDoinput = toDOForm.querySelector("input");
 
 function paintTodo(newTodo){
-    console.log("I Will paint",newTodo);
-    const Todoli = document.createElement("li");
-    const TodoSpan =document.createElement("span");
-    //li 내부에 span을 넣고 싶음
-    Todoli.appendChild(TodoSpan);
-    TodoSpan.innerHTML = newTodo;
-    toDoList.appendChild(Todoli);
+    const todoli = document.createElement("li");
+    const todoSpan =document.createElement("span");
+    todoSpan.innerHTML = newTodo;
+
+    const todoButton = document.createElement("button");
+    todoButton.innerHTML = "❌";
+    todoButton.addEventListener("click",deletTodo);
+    todoli.appendChild(todoSpan);
+    todoli.appendChild(todoButton);
+    toDoList.appendChild(todoli);
+    
 }
 
 
@@ -24,3 +28,8 @@ function handleTODoSubmit(event){
 }
 
 toDOForm.addEventListener("submit", handleTODoSubmit)
+
+function deletTodo(event){
+    const li = event.target.parentElement;
+    li.remove();
+}
