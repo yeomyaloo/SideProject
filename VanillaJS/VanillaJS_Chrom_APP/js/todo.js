@@ -1,35 +1,55 @@
-const toDOForm = document.getElementById("todo-form");
+const toDoForm = document.getElementById("todo-form");
+const toDoInput = document.querySelector("#todo-form input");
 const toDoList = document.getElementById("todo-list");
 
-// const toDoinput = document.querySelector("#todo-form input")
-const toDoinput = toDOForm.querySelector("input");
+const TODOS_KEY = "todos";
 
-function paintTodo(newTodo){
-    const todoli = document.createElement("li");
-    const todoSpan =document.createElement("span");
-    todoSpan.innerHTML = newTodo;
+let toDos = [];
 
-    const todoButton = document.createElement("button");
-    todoButton.innerHTML = "❌";
-    todoButton.addEventListener("click",deletTodo);
-    todoli.appendChild(todoSpan);
-    todoli.appendChild(todoButton);
-    toDoList.appendChild(todoli);
-    
+function saveToDos() {
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
+  // 문자열로 바꿔주는 방법. 
 }
 
-
-//기본으로 submit의 기본동작인 새로고침을 막기 위한 함수
-function handleTODoSubmit(event){
-    event.preventDefault();
-    const newTodo = toDoinput.value;
-    toDoinput.value="";
-    paintTodo(newTodo);
+function deleteToDo(event) {
+  const li = event.target.parentElement;
+  li.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  saveToDos();
 }
 
-toDOForm.addEventListener("submit", handleTODoSubmit)
+function paintToDo(newTodo) {
+  const li = document.createElement("li");
+  li.id = newTodo.id;
+  const span = document.createElement("span");
+  span.innerText = newTodo.text;
+  const button = document.createElement("button");
+  button.innerText = "❌";
+  button.addEventListener("click", deleteToDo);
+  li.appendChild(span);
+  li.appendChild(button);
+  toDoList.appendChild(li);
+}
 
-function deletTodo(event){
-    const li = event.target.parentElement;
-    li.remove();
+function handleToDoSubmit(event) {
+  event.preventDefault();
+  const newTodo = toDoInput.value;
+  toDoInput.value = "";
+  const newTodoObj = {
+    text: newTodo,
+    id: Date.now(),
+  };
+  toDos.push(newTodoObj);
+  paintToDo(newTodoObj);
+  saveToDos();
+}
+
+toDoForm.addEventListener("submit", handleToDoSubmit);
+
+const savedToDos = localStorage.getItem(TODOS_KEY);
+
+if (savedToDos !== null) {
+  const parsedToDos = JSON.parse(savedToDos);
+  toDos = parsedToDos;
+  parsedToDos.forEach(paintToDo);
 }
