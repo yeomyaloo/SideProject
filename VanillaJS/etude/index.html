@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>What's going on</title>
+    <link rel="stylesheet" href="css\index.css">
+</head>
+<body>
+    <!--시간 날짜가 들어갈 첫 부분-->
+    <section id="first_section">
+        <div class="first_section_wrap">
+            <h2 id="clock">00:00:00</h2>
+            <div id="weather">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </section>
+    
+    <!--명언과 내 이름을 넣을 중간부-->
+    <section id="middle_section">
+        <div class="middle_section_wrap">
+            <div id="quote">
+                <span></span>
+                <span></span>
+            </div>
+            <form class="hidden" id="login-form">
+                <input 
+                required 
+                maxlength="15"
+                type="text"
+                placeholder="What is your name?">
+                <input type="submit" value="Log In">
+            </form>
+            <h1 class="hidden" id="greeting"></h1>
+        </div>
+    </section>
+
+    <!--ToDo list를 넣어줄 마지막부-->
+    <section id="end_section">
+        <div class="end_section_wrap">
+            <form action="" id="todo-form">
+                <input type="text"placeholder="Write a To Do and Press Enter" required/>
+            </form>
+            <ul id="todo-list"></ul>
+        </div>
+    </section>
+
+    <script src="js/greetings.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/weather.js"></script>
+</body>
+</html>
