@@ -4,6 +4,12 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 .hidden{
     display: none;
 }
@@ -17,23 +23,42 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    font-family: 'HSYuji-Regular';
+    font-family: 'Cafe24Ssurround';
     padding: 0;
     margin: 0;
+    
 }
 
+
+/* 첫 부분 */
 #first_section {
     width: 30vw;
     height: 100%;
     display: flex;
     /* 첫번째 섹션의 요소들을 세로로 정렬한다는 의미 */
     flex-direction: column; 
+    text-align: center;
+    margin: 10px 0 0 10px;
+    
+}
+#first_section #quote{
+    width: 500px;
+    height: auto;
+    text-align: center;
+    margin-bottom: 10px;
+    line-height: 50px;
+    color: #FFF;
+}
+#first_section #weather{
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+    line-height: 50px;
+    color: #FFF;
 }
 
-#first_section .clock {
-
-}
-
+/* 중간 부부 */
 #middle_section {
     width: 40vw;
     display: flex;
@@ -42,10 +67,29 @@ body{
     align-items: center;
 }
 
+#middle_section #clock{
+    width: 400px;
+    height: 200px;
+    line-height: 200px;
+    text-align: center;
+    font-size: 35px;
+    color: #FFF;
+}
+#middle_section #greeting{
+    width: auto;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #FFF;
+}
+
+
+/* 끝 부분 */
 #end_section{
     width: 30vw;
     display: flex;
     justify-content: center;
+    margin: 10px;
 }
 
 #end_section .end_section_wrap {
@@ -54,4 +98,43 @@ body{
 }
 #end_section ul li {
     list-style: none;
+    height: 40px;
+}
+ {
+    margin-left: auto;
+    margin-right: 20px;
+    font-size: 20px;
+    height: 25px;
+    color: #FFF;
+    border-radius: 50%;
+    line-height: 50px;
+}
+#end_section ul li button:hover {
+    color: rgba(255, 255, 255, .5);
+  }
+#end_section ul li button:hover {
+    background-color: #FFF;
+  }
+
+  #end_section ul li span {
+    margin-right: 50px;
+  }
+#end_section input[type=text]{
+    width: 100%;
+    border: 2px solid #aaa;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+}
+#end_section input[type=text]:focus{
+   border-color: dodgerblue;
+   box-shadow: 0 0 8px 0 dodgerblue;
+}
+
+
+/* 요소들의 박스 (데코 글래스모리피즘)  */
+.glassmorphism{
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
 }
