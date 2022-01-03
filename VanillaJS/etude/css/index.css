@@ -100,12 +100,13 @@ body{
     list-style: none;
     height: 40px;
 }
-.toDoListBox ul li div {
+#end_section ul li div {
     height: 1em;
     color: white;
     font-size: 20px;
     margin-left: 15px;
     font-weight: 300;
+
 }
 
 button {
@@ -122,31 +123,44 @@ button {
     color: white;
     border-radius: 50%;
     line-height: 25px;
+    float: right;
+    line-height: 40px;
 }
+
+
 #end_section ul li button:hover {
     color: rgba(255, 255, 255, .5);
-    
-  }
-#end_section ul li button:hover {
     background-color: #FFF;
     border: none;
+    line-height: 40px;
   }
 
 .todo-input{
     width: 90%;
     font-size: 20px;
     color: rgba(0, 0, 0, .8);
+    line-height: 40px;
 
 }
 
+#end_section #todo-list{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#end_section ul li span {
+    color: white;
+    line-height: 40px;
+
+}
 #end_section input[type=text]{
     border: none;
     background-color: rgba(0, 0, 0, 0);
     border-bottom: white solid 2px;
+    
 }
 #end_section input[type=text]:focus{
-   border-color: dodgerblue;
-   box-shadow: 0 0 8px 0 dodgerblue;
+
+   border: none;
 }
 #end_section #end_section_wrap{
     width: 100%;
@@ -162,6 +176,8 @@ button {
     align-items: center;
     justify-content: center;
 }
+
+
 
 /* 요소들의 박스 (데코 글래스모리피즘)  */
 .glassmorphism {
