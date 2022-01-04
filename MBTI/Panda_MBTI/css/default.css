@@ -1,0 +1,16 @@
+/*전체 영향을 주는 css*/
+@font-face {
+  font-family: 'GowunDodum-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  font-family: 'GowunDodum-Regular';
+}
+
+body{
+  background-color: pink;
+}
+
+
