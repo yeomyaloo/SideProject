@@ -2,3 +2,4 @@
 *.properties
 *.properties
 board/src/main/resources/application.properties
+board/src/main/resources/application.properties
