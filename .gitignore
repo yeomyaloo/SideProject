@@ -1,2 +1,4 @@
 
 *.properties
+*.properties
+board/src/main/resources/application.properties
