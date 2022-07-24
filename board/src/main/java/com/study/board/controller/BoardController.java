@@ -45,10 +45,20 @@ public class BoardController {
     }
 
     @GetMapping("/board/list")
-    public String boardList(Model model, @PageableDefault(page=0, size=10, sort="id", direction=Sort.Direction.DESC) Pageable pageable){
+    public String boardList(Model model,
+                            @PageableDefault(page=0, size=10, sort="id", direction=Sort.Direction.DESC) Pageable pageable,
+                            String searchKeyword){
 
+        Page<Board> list = null;
 
-        Page<Board> list = boardService.boardList(pageable);
+        if (searchKeyword == null) {
+            // 검색 단어가 없으면 기존 화면을 보여준다.
+            list =boardService.boardList(pageable);
+        } else {
+
+            // 검색 단어가 들어오면 검색 단어에 맞게 나온다. 쿼리스트링으로 들어가는 키워드를 찾아냄
+            list = boardService.boardSearchList(searchKeyword, pageable);
+        }
 
 
         //페이지블럭 처리
